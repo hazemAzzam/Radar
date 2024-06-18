@@ -1,0 +1,26 @@
+button {
+  width: 90%;
+  height: 40px;
+  background: var(--light-color);
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid var(--border-color);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  background: var(--primary-color);
+  opacity: 0.8;
+  color: var(--light-color);
+}
+
+.buttons_group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}

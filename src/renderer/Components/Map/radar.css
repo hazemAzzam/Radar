@@ -1,0 +1,34 @@
+.radar {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.2);
+  border: 2px solid green;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.radar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 50%;
+  background: green;
+  transform-origin: bottom;
+  animation: rotate 2s linear infinite;
+  transform: translate(-50%, -100%);
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(360deg);
+  }
+}
