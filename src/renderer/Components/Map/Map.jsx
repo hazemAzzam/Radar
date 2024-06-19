@@ -47,12 +47,12 @@ export default function Map() {
         center={center}
         zoom={7}
         scrollWheelZoom={true}
-        minZoom={6}
+        minZoom={5}
         maxZoom={7}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="http://127.0.0.1:8080/{z}/{x}/{y}.png"
+          url="http://127.0.0.1:8080/{z}/{x}/{y}.webp"
         />
         <MapEventTracker />
         <Marker position={center} icon={radarIcon}></Marker>
