@@ -1,8 +1,8 @@
 /* radar.module.css */
 .radar {
   position: absolute;
-  width: 100px; /* Set the width of the radar */
-  height: 100px; /* Set the height of the radar */
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background: rgba(0, 255, 0, 0.2);
   border: 2px solid green;
@@ -18,8 +18,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 2px; /* Set the width of the rotating line */
-  height: 50%; /* Set the length of the rotating line */
+  width: 2px;
+  height: 50%;
   background: green;
   transform-origin: bottom;
   animation: rotate 2s linear infinite;
