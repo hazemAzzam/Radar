@@ -15,6 +15,10 @@ coverage
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+# Tiles directory
+# use this script to download tiles https://github.com/hazemAzzam/Leaflet-Tile-Generator
+tiles
+
 # OSX
 .DS_Store
 

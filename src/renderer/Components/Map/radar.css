@@ -1,17 +1,19 @@
-.radar {
+/* MapExample.css */
+.leaflet-interactive {
+  fill: rgba(0, 255, 0, 0.2) !important; /* Fill color */
+  stroke: green !important; /* Border color */
+  stroke-width: 2px !important; /* Border width */
+  border-radius: 50%; /* Circular shape */
   position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: rgba(0, 255, 0, 0.2);
-  border: 2px solid green;
+  width: 200px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
 
-.radar::before {
+.leaflet-interactive::before {
   content: '';
   position: absolute;
   top: 50%;

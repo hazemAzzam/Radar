@@ -14,6 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import './server'; // Import the server to start it
 
 class AppUpdater {
   constructor() {
@@ -38,7 +39,7 @@ const openNewWindow = (windowName: string) => {
     width: 400,
     height: 400,
     webPreferences: {
-      devTools: false,
+      // devTools: false,
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
         : path.join(__dirname, '../../.erb/dll/preload.js'),
@@ -112,7 +113,7 @@ const createWindow = async () => {
     height: 728,
     icon: getAssetPath('icon.png'),
     webPreferences: {
-      devTools: false,
+      // devTools: false,
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
         : path.join(__dirname, '../../.erb/dll/preload.js'),
