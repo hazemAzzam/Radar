@@ -58,6 +58,15 @@ export default function Left() {
         <button>OUT V</button>
         <button>RADAR STATUS</button>
       </div>
+      <div className={style.buttons_group}>
+        <button
+          onClick={() => {
+            handleWindowNavigation('settings');
+          }}
+        >
+          SETTINGS
+        </button>
+      </div>
     </>
   );
 }

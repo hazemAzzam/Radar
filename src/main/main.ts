@@ -25,6 +25,7 @@ class AppUpdater {
 }
 
 let mainWindow: BrowserWindow | null = null;
+let windows: BrowserWindow[] = [];
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -33,11 +34,20 @@ ipcMain.on('ipc-example', async (event, arg) => {
 });
 
 const openNewWindow = (windowName: string) => {
+  // loop all windows and if the window is already opened then focus on it
+  const existingWindow = windows.find((window) => window.title === windowName);
+  if (existingWindow) {
+    existingWindow.focus();
+    return existingWindow;
+  }
+
   let newWindow: BrowserWindow | null = null;
   newWindow = new BrowserWindow({
     show: false,
     width: 400,
     height: 400,
+    alwaysOnTop: true,
+    title: windowName,
     webPreferences: {
       devTools: false,
       preload: app.isPackaged
@@ -56,13 +66,15 @@ const openNewWindow = (windowName: string) => {
       newWindow.minimize();
     } else {
       newWindow.show();
+      windows.push(newWindow);
       newWindow.webContents.send('navigate_to', windowName);
     }
   });
+  newWindow.on('closed', () => {
+    windows = windows.filter((window) => window !== newWindow);
+    newWindow = null;
+  });
   return newWindow;
-  // newWindow.on('closed', () => {
-  //   newWindow = null;
-  // });
 };
 
 ipcMain.on('navigate', (event, arg) => {
@@ -174,3 +186,7 @@ app
     });
   })
   .catch(console.log);
+
+ipcMain.on('refresh', (event, args) => {
+  mainWindow?.webContents.reload();
+});

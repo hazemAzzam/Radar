@@ -1,0 +1,25 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.element {
+  font-size: 25px;
+}
+option,
+select {
+  font-size: 20px;
+}
+
+.save {
+  width: 100%;
+}
+.save button {
+  width: 100%;
+  font-size: 20px;
+  bottom: 0;
+}

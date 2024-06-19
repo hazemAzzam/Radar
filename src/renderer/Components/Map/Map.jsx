@@ -17,7 +17,7 @@ function calculateIconSize(distance, zoom) {
 
 export default function Map() {
   const [iconSize, setIconSize] = useState([200, 200]); // Default icon size
-
+  const [refresh, setRefresh] = useState(0);
   function MapEventTracker() {
     useMapEvents({
       zoomend: (event) => {
@@ -39,6 +39,11 @@ export default function Map() {
     const initialZoom = 7;
     const initialSize = calculateIconSize(distanceInKm, initialZoom);
     setIconSize(initialSize);
+
+    window.electron.ipcRenderer.once('set-theme', (args) => {
+      setRfresh(refresh + 1);
+      alert(`reply recieved ${refresh}`);
+    });
   }, []);
 
   return (
