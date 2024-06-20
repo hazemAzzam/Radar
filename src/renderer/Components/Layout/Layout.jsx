@@ -1,8 +1,12 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import style from './layout.module.css';
 export default function Layout() {
-  return <>
-    <Outlet />
-  </>
+  return (
+    <>
+      <div className={style.container}>
+        <Outlet />
+      </div>
+    </>
+  );
 }

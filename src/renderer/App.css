@@ -5,6 +5,7 @@
   --light-color: #c6c89f;
   --font-color: #3c3c3c;
   --border-color: #c6c89f;
+  --nav-size: 52px;
 }
 * {
   margin: 0;
@@ -17,12 +18,13 @@ html {
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: 'wdth' 100;
-
+  overflow: hidden;
   height: 100vh;
   width: 100%;
 }
 body {
   height: 100vh;
+  width: 100%;
 }
 .leaflet-container {
   width: 100%;

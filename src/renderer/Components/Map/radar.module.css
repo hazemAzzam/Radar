@@ -11,6 +11,13 @@
   transform: translate(-50%, -50%);
   z-index: 1000;
   scale: 1;
+  box-shadow: 0rem 0rem 1rem 1rem rgba(0, 255, 0, 0.2);
+}
+
+.radar.danger {
+  background: rgba(181, 28, 28, 0.2);
+  border: 2px solid red;
+  box-shadow: 0rem 0rem 1rem 1rem rgba(181, 28, 28, 0.2);
 }
 
 .radar::before {
@@ -18,12 +25,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 2px;
+  width: 0px;
   height: 50%;
   background: green;
   transform-origin: bottom;
   animation: rotate 2s linear infinite;
   transform: translate(-50%, -100%);
+  box-shadow: 0rem 0rem 1.1rem 2px;
 }
 
 @keyframes rotate {

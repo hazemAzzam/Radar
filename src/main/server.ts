@@ -11,7 +11,6 @@ let theme = 'light';
 
 ipcMain.on('set-theme', (event, themeName) => {
   theme = themeName;
-  console.log(`set theme ${theme}`);
   event.reply('set-theme', 'test');
 });
 
@@ -29,7 +28,6 @@ app.get('/:z/:x/:y.webp', (req, res) => {
     x,
     `${y}.webp`,
   );
-  console.log(filePath);
 
   // Check if the file exists and send it, or send a 404 error
   res.sendFile(filePath, (err) => {

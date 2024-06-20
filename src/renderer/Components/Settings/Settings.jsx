@@ -18,6 +18,7 @@ export default function Settings() {
           <select name="themes" id="" ref={theme}>
             <option value="light">Light</option>
             <option value="spinal_map">Spinal Map</option>
+            <option value="tilegen">Tilegen</option>
           </select>
         </div>
         <div className={style.save}>

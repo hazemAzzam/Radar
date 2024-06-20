@@ -26,12 +26,7 @@ class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 let windows: BrowserWindow[] = [];
-
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
-});
+let lines = [];
 
 const openNewWindow = (windowName: string) => {
   // loop all windows and if the window is already opened then focus on it
@@ -44,12 +39,12 @@ const openNewWindow = (windowName: string) => {
   let newWindow: BrowserWindow | null = null;
   newWindow = new BrowserWindow({
     show: false,
-    width: 400,
-    height: 400,
+    width: 600,
+    height: 700,
     alwaysOnTop: true,
     title: windowName,
     webPreferences: {
-      devTools: false,
+      // devTools: false,
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
         : path.join(__dirname, '../../.erb/dll/preload.js'),
@@ -121,8 +116,8 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 1000,
+    height: 1000,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       devTools: false,
@@ -189,4 +184,10 @@ app
 
 ipcMain.on('refresh', (event, args) => {
   mainWindow?.webContents.reload();
+});
+
+ipcMain.on('save-line', (event, args) => {
+  // lines.push(args);
+
+  event.reply('save-line', args);
 });

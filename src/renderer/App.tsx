@@ -5,6 +5,7 @@ import Layout from './Components/Layout/Layout';
 import Home from './Components/Home/Home';
 import Palet from './Components/Palet/Palet';
 import Settings from './Components/Settings/Settings';
+import Lines from './Components/Left/Components/Lines/Lines';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route index={true} element={<Home />} />
           <Route path="/palet" element={<Palet />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/lines" element={<Lines />} />
         </Route>
       </Routes>
     </Router>

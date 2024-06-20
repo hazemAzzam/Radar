@@ -36,7 +36,13 @@ export default function Left() {
         </button>
         <button>PYPAS</button>
         <button>L-776</button>
-        <button>LINES</button>
+        <button
+          onClick={() => {
+            handleWindowNavigation('lines');
+          }}
+        >
+          LINES
+        </button>
       </div>
       <div className={style.buttons_group}>
         <button>VIDEO</button>
